@@ -1,0 +1,59 @@
+; BNS/NSBH Injection configuration for O2 rates and population runs
+
+[workflow-injections]
+injections-method = PREGENERATED
+; Remove injections that are not in coincident data
+strip-injections =
+compute-optimal-snr =
+
+[strip_injections]
+
+[optimal_snr]
+snr-columns = ${hdfinjfind|optimal-snr-column}
+f-low = ${inspiral|low-frequency-cutoff}
+seg-length = ${inspiral|segment-length}
+sample-rate = 16384
+cores = 4
+
+[inj_cut]
+snr-columns = ${hdfinjfind|optimal-snr-column}
+snr-threshold = 4.0
+
+[sharedoptions]
+injfilterrejector_ratesbbh = inspiral-bns0inj,inspiral-bns1inj,inspiral-nsbh0inj,inspiral-nsbh1inj,inspiral-nsbh2inj,inspiral-nsbh3inj,inspiral-nsbh4inj,inspiral-nsbh5inj,inspiral-nsbh6inj
+
+[injections-bns0inj]
+[workflow-injections-bns0inj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_5_aligned-1126051217-1127271617.xml.gz
+
+[injections-bns1inj]
+[workflow-injections-bns1inj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_isotropic-1126051217-1127271617.xml.gz
+
+[injections-nsbh0inj]
+[workflow-injections-nsbh0inj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_5_aligned-1126051217-1127271617.xml.gz
+
+[injections-nsbh1inj]
+[workflow-injections-nsbh1inj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_isotropic-1126051217-1127271617.xml.gz
+
+[injections-nsbh2inj]
+[workflow-injections-nsbh2inj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_10_aligned-1126051217-1127271617.xml.gz
+
+[injections-nsbh3inj]
+[workflow-injections-nsbh3inj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_aligned-1126051217-1127271617.xml.gz
+
+[injections-nsbh4inj]
+[workflow-injections-nsbh4inj]
+injections-pregenerated-file = /some/path/bns_broad-1126051217-1127271617.xml.gz
+
+[injections-nsbh5inj]
+[workflow-injections-nsbh5inj]
+injections-pregenerated-file = /some/path/nsbh_broad-1126051217-1127271617.xml.gz
+
+[injections-nsbh6inj]
+[workflow-injections-nsbh6inj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_10_isotropic-1126051217-1127271617.xml.gz
