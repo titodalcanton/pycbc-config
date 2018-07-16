@@ -36,7 +36,7 @@ injection-filter-rejector-match-threshold = 0.35
 injections-pregenerated-file = /some/path/bns_broad-1126051217-1127271617.xml.gz
 
 [injections-bns_astroinj]
-[workflow-injections-bns1_astroinj]
+[workflow-injections-bns_astroinj]
 injections-pregenerated-file = /some/path/bns_astrophysical-1126051217-1127271617.xml.gz
 
 [injections-nsbh_broadinj]
@@ -56,13 +56,13 @@ injections-pregenerated-file = /some/path/nsbh_delta_1p4_10_aligned-1126051217-1
 injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_aligned-1126051217-1127271617.xml.gz
 
 [injections-nsbh_5precinj]
-[workflow-injections-nsbh_inj]
+[workflow-injections-nsbh_5precinj]
 injections-pregenerated-file = /some/path/nsbh_delta_1p4_5_isotropic-1126051217-1127271617.xml.gz
 
 [injections-nsbh_10precinj]
-[workflow-injections-nsbh_inj]
+[workflow-injections-nsbh_10precinj]
 injections-pregenerated-file = /some/path/nsbh_delta_1p4_10_isotropic-1126051217-1127271617.xml.gz
 
 [injections-nsbh_30precinj]
-[workflow-injections-nsbh_inj]
+[workflow-injections-nsbh_30precinj]
 injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_isotropic-1126051217-1127271617.xml.gz
