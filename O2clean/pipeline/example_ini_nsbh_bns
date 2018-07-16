@@ -19,8 +19,9 @@ cores = 4
 snr-columns = ${hdfinjfind|optimal-snr-column}
 snr-threshold = 4.0
 
-injfilterrejector_aligned = inspiral-nsbh0_inj,inspiral-nsbh2_inj,inspiral-nsbh3_inj
-injfilterrejector_precessing = inspiral-bns0_inj,inspiral-bns1_inj,inspiral-nsbh1_inj,inspiral-nsbh4_inj,inspiral-nsbh5_inj,inspiral-nsbh6_inj
+[sharedoptions]
+injfilterrejector_aligned = inspiral-nsbh_5alignedinj,inspiral-nsbh_10alignedinj,inspiral-nsbh_30alignedinj
+injfilterrejector_precessing = inspiral-bns_broadinj,inspiral-bns_astroinj,inspiral-nsbh_broadinj,inspiral-nsbh_5precinj,inspiral-nsbh_10precinj,inspiral-nsbh_30precinj
 
 [sharedoptions-injfilterrejector_aligned]
 injection-filter-rejector-chirp-time-window = 5
@@ -30,38 +31,38 @@ injection-filter-rejector-match-threshold = 0.5
 injection-filter-rejector-chirp-time-window = 5
 injection-filter-rejector-match-threshold = 0.35
 
-[injections-bns0_inj]
-[workflow-injections-bns0_inj]
+[injections-bns_broadinj]
+[workflow-injections-bns_broadinj]
 injections-pregenerated-file = /some/path/bns_broad-1126051217-1127271617.xml.gz
 
-[injections-bns1_inj]
-[workflow-injections-bns1_inj]
+[injections-bns_astroinj]
+[workflow-injections-bns1_astroinj]
 injections-pregenerated-file = /some/path/bns_astrophysical-1126051217-1127271617.xml.gz
 
-[injections-nsbh0_inj]
-[workflow-injections-nsbh0_inj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_5_aligned-1126051217-1127271617.xml.gz
-
-[injections-nsbh1_inj]
-[workflow-injections-nsbh1_inj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_isotropic-1126051217-1127271617.xml.gz
-
-[injections-nsbh2_inj]
-[workflow-injections-nsbh2_inj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_10_aligned-1126051217-1127271617.xml.gz
-
-[injections-nsbh3_inj]
-[workflow-injections-nsbh3_inj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_aligned-1126051217-1127271617.xml.gz
-
-[injections-nsbh4_inj]
-[workflow-injections-nsbh4_inj]
+[injections-nsbh_broadinj]
+[workflow-injections-nsbh_broadinj]
 injections-pregenerated-file = /some/path/nsbh_broad-1126051217-1127271617.xml.gz
 
-[injections-nsbh5_inj]
-[workflow-injections-nsbh5_inj]
+[injections-nsbh_5alignedinj]
+[workflow-injections-nsbh_5alignedinj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_5_aligned-1126051217-1127271617.xml.gz
+
+[injections-nsbh_10alignedinj]
+[workflow-injections-nsbh_10alignedinj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_10_aligned-1126051217-1127271617.xml.gz
+
+[injections-nsbh_30alignedinj]
+[workflow-injections-nsbh_30alignedinj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_aligned-1126051217-1127271617.xml.gz
+
+[injections-nsbh_5precinj]
+[workflow-injections-nsbh_inj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_5_isotropic-1126051217-1127271617.xml.gz
+
+[injections-nsbh_10precinj]
+[workflow-injections-nsbh_inj]
 injections-pregenerated-file = /some/path/nsbh_delta_1p4_10_isotropic-1126051217-1127271617.xml.gz
 
-[injections-nsbh6_inj]
-[workflow-injections-nsbh6_inj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_5_isotropic-1126051217-1127271617.xml.gz
+[injections-nsbh_30precinj]
+[workflow-injections-nsbh_inj]
+injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_isotropic-1126051217-1127271617.xml.gz
