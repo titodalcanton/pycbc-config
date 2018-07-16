@@ -20,8 +20,8 @@ snr-columns = ${hdfinjfind|optimal-snr-column}
 snr-threshold = 4.0
 
 [sharedoptions]
-injfilterrejector_aligned = inspiral-nsbh_5alignedinj,inspiral-nsbh_10alignedinj,inspiral-nsbh_30alignedinj
-injfilterrejector_precessing = inspiral-bns_broadinj,inspiral-bns_astroinj,inspiral-nsbh_broadinj,inspiral-nsbh_5precinj,inspiral-nsbh_10precinj,inspiral-nsbh_30precinj
+injfilterrejector_aligned =inspiral-nsbh_0alignedinj,inspiral-nsbh_2alignedinj,inspiral-nsbh_3alignedinj
+injfilterrejector_precessing =inspiral-bns_0inj,inspiral-bns_1inj,inspiral-nsbh_1inj,inspiral-nsbh_4inj,inspiral-nsbh_5inj,inspiral-nsbh_6inj
 
 [sharedoptions-injfilterrejector_aligned]
 injection-filter-rejector-chirp-time-window = 5
@@ -31,38 +31,38 @@ injection-filter-rejector-match-threshold = 0.5
 injection-filter-rejector-chirp-time-window = 5
 injection-filter-rejector-match-threshold = 0.35
 
-[injections-bns_broadinj]
-[workflow-injections-bns_broadinj]
-injections-pregenerated-file = /some/path/bns_broad-1126051217-1127271617.xml.gz
+[injections-bns_0inj]
+[workflow-injections-bns_0inj]
+injections-pregenerated-file = https://git.ligo.org/RatesAndPopulations/lvc-rates-and-pop/raw/63eef8f9d19d171ff79fc05e961f3c8e33f6c007/share/O2/injection_files/O1_1/bns_broad-1126051217-1127271617.xml.gz
 
-[injections-bns_astroinj]
-[workflow-injections-bns_astroinj]
-injections-pregenerated-file = /some/path/bns_astrophysical-1126051217-1127271617.xml.gz
+[injections-bns_1inj]
+[workflow-injections-bns_1inj]
+injections-pregenerated-file = https://git.ligo.org/RatesAndPopulations/lvc-rates-and-pop/raw/63eef8f9d19d171ff79fc05e961f3c8e33f6c007/share/O2/injection_files/O1_1/bns_astrophysical-1126051217-1127271617.xml.gz
 
-[injections-nsbh_broadinj]
-[workflow-injections-nsbh_broadinj]
-injections-pregenerated-file = /some/path/nsbh_broad-1126051217-1127271617.xml.gz
+[injections-nsbh_0alignedinj]
+[workflow-injections-nsbh_0alignedinj]
+injections-pregenerated-file = https://git.ligo.org/RatesAndPopulations/lvc-rates-and-pop/raw/63eef8f9d19d171ff79fc05e961f3c8e33f6c007/share/O2/injection_files/O1_1/nsbh_delta_1p4_5_aligned-1126051217-1127271617.xml.gz
 
-[injections-nsbh_5alignedinj]
-[workflow-injections-nsbh_5alignedinj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_5_aligned-1126051217-1127271617.xml.gz
+[injections-nsbh_1inj]
+[workflow-injections-nsbh_1inj]
+injections-pregenerated-file = https://git.ligo.org/RatesAndPopulations/lvc-rates-and-pop/raw/63eef8f9d19d171ff79fc05e961f3c8e33f6c007/share/O2/injection_files/O1_1/nsbh_delta_1p4_30_isotropic-1126051217-1127271617.xml.gz
 
-[injections-nsbh_10alignedinj]
-[workflow-injections-nsbh_10alignedinj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_10_aligned-1126051217-1127271617.xml.gz
+[injections-nsbh_2alignedinj]
+[workflow-injections-nsbh_2alignedinj]
+injections-pregenerated-file = https://git.ligo.org/RatesAndPopulations/lvc-rates-and-pop/raw/63eef8f9d19d171ff79fc05e961f3c8e33f6c007/share/O2/injection_files/O1_1/nsbh_delta_1p4_10_aligned-1126051217-1127271617.xml.gz
 
-[injections-nsbh_30alignedinj]
-[workflow-injections-nsbh_30alignedinj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_aligned-1126051217-1127271617.xml.gz
+[injections-nsbh_3alignedinj]
+[workflow-injections-nsbh_3alignedinj]
+injections-pregenerated-file = https://git.ligo.org/RatesAndPopulations/lvc-rates-and-pop/raw/63eef8f9d19d171ff79fc05e961f3c8e33f6c007/share/O2/injection_files/O1_1/nsbh_delta_1p4_30_aligned-1126051217-1127271617.xml.gz
 
-[injections-nsbh_5precinj]
-[workflow-injections-nsbh_5precinj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_5_isotropic-1126051217-1127271617.xml.gz
+[injections-nsbh_4inj]
+[workflow-injections-nsbh_4inj]
+injections-pregenerated-file = https://git.ligo.org/RatesAndPopulations/lvc-rates-and-pop/raw/63eef8f9d19d171ff79fc05e961f3c8e33f6c007/share/O2/injection_files/O1_1/nsbh_broad-1126051217-1127271617.xml.gz
 
-[injections-nsbh_10precinj]
-[workflow-injections-nsbh_10precinj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_10_isotropic-1126051217-1127271617.xml.gz
+[injections-nsbh_5inj]
+[workflow-injections-nsbh_5inj]
+injections-pregenerated-file = https://git.ligo.org/RatesAndPopulations/lvc-rates-and-pop/raw/63eef8f9d19d171ff79fc05e961f3c8e33f6c007/share/O2/injection_files/O1_1/nsbh_delta_1p4_10_isotropic-1126051217-1127271617.xml.gz
 
-[injections-nsbh_30precinj]
-[workflow-injections-nsbh_30precinj]
-injections-pregenerated-file = /some/path/nsbh_delta_1p4_30_isotropic-1126051217-1127271617.xml.gz
+[injections-nsbh_6inj]
+[workflow-injections-nsbh_6inj]
+injections-pregenerated-file = https://git.ligo.org/RatesAndPopulations/lvc-rates-and-pop/raw/63eef8f9d19d171ff79fc05e961f3c8e33f6c007/share/O2/injection_files/O1_1/nsbh_delta_1p4_5_isotropic-1126051217-1127271617.xml.gz
