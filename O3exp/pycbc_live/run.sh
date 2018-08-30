@@ -10,7 +10,7 @@ export OMP_NUM_THREADS=4
 export LD_LIBRARY_PATH=/home/pycbc.live/production/O3exp/env_fftw_noavx/lib:$LD_LIBRARY_PATH
 
 mpirun \
--hostfile hosts3 \
+-hostfile mpi_hosts_cit.txt \
 -n 40 \
 -ppn 1 \
 -envlist X509_USER_PROXY,X509_USER_KEY,X509_USER_CERT,PYTHONPATH,LD_LIBRARY_PATH,OMP_NUM_THREADS,VIRTUAL_ENV,PATH,LAL_DATA_PATH \
