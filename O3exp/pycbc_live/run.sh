@@ -7,7 +7,6 @@ export X509_USER_PROXY=/home/pycbc.live/.globus/proxy
 export X509_USER_CERT=/home/pycbc.live/.globus/robot.cert.pem
 export X509_USER_KEY=/home/pycbc.live/.globus/robot.cert.key
 export OMP_NUM_THREADS=4
-export LD_LIBRARY_PATH=/home/pycbc.live/production/O3exp/env_fftw_noavx/lib:$LD_LIBRARY_PATH
 
 mpirun \
 -hostfile mpi_hosts_cit.txt \
@@ -49,8 +48,8 @@ pycbc_live \
 --processing-scheme cpu:4 \
 --fftw-measure-level 0 \
 --fftw-threads-backend openmp \
---fftw-input-float-wisdom-file /home/ahnitz/projects/plive/swisdom1 \
---fftw-input-double-wisdom-file /home/ahnitz/projects/plive/dwisdom1 \
+--fftw-input-float-wisdom-file fftw_wisdom_single_cit \
+--fftw-input-double-wisdom-file fftw_wisdom_double_cit \
 --increment 8 \
 --single-newsnr-threshold 10 \
 --single-duration-threshold 1.0 \
