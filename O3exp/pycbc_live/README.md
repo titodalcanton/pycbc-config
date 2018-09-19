@@ -10,63 +10,25 @@ Create new virtualenv with path `$VE` and activate it.
 
 Create directory `$VE/src`.
 
-Due to a bug, the system build of FFTW will not work for PyCBC Live and will
-lead to random hangs of the analysis.  Download FFTW 3.3.8 into `$VE/src`.
-Configure FFTW *disabling AVX512 optimizations* and setting the prefix to
-`$VE`, then build and install FFTW. Note that this has to be repeated twice,
-once for single precision (`--enable-float`) and once for double.  You can use
-the following commands:
-```
-export CC=/opt/rh/devtoolset-7/root/usr/bin/gcc
-
-# double-precision version
-
-./configure \
-    --enable-shared \
-    --enable-fma \
-    --enable-threads \
-    --enable-openmp \
-    --enable-avx2 \
-    --enable-avx \
-    --enable-sse2 \
-    --prefix=$VE
-make -j
-make install
-
-make clean
-
-# single-precision version
-
-./configure \
-    --enable-shared \
-    --enable-fma \
-    --enable-threads \
-    --enable-openmp \
-    --enable-avx2 \
-    --enable-avx \
-    --enable-sse2 \
-    --enable-float \
-    --prefix=$VE
-make -j
-make install
-```
-Note that FFTW should be built on one of the worker hosts, e.g. `node550`.
-
 Clone PyCBC into `$VE/src/pycbc` and `cd` into it.
 Install PyCBC with `pip install .`.
 
 Clone https://git.ligo.org/ligo-cbc/pycbc-config from your own user.
 
 Move to `O3exp/pycbc_live` into the working copy (where this README is).
-You will find a file `run.sh` and a file with a list of hosts to run MPI workers on.
+You will find a file `run.sh`, a file with a list of hosts to run MPI workers on,
+and two FFTW wisdom files.
 
-Copy both files to `node550` under a directory in `/local/pycbc.live`
+Copy the above files to `node550` under a directory in `/local/pycbc.live`
 (*not* NFS), obviously as the `pycbc.live` user.
+
 
 Starting PyCBC Live
 -------------------
 
 Make sure you are logged in as `pycbc.live`.
+
+Make sure the appropriate virtualenv is active.
 
 From `node550`, start `run.sh` redirecting the stdout and stderr to a file
 also under `/local/pycbc.live` (*not* NFS).
