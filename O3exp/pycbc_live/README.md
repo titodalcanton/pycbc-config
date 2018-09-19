@@ -33,7 +33,7 @@ Make sure the appropriate virtualenv is active.
 From `node550`, start `run.sh` redirecting the stdout and stderr to a file
 also under `/local/pycbc.live` (*not* NFS).
 
-Wait for the template bank to be generated.
+Wait for the waveforms contained in the supplied template bank to be generated.
 
 Before leaving the analysis running, make sure there are no exceptions
 or errors in the log file and that the log is being populated with lots
