@@ -19,8 +19,11 @@ Move to `O3exp/pycbc_live` into the working copy (where this README is).
 You will find a file `run.sh`, a file with a list of hosts to run MPI workers on,
 and two FFTW wisdom files.
 
-Copy the above files to `node550` under a directory in `/local/pycbc.live`
+Copy the  `run.sh` and the list of hosts to `node550` under a directory in `/local/pycbc.live`
 (*not* NFS), obviously as the `pycbc.live` user.
+
+You will need to edit `run.sh` to point to the wisdom files. These need to be
+in a directory visible to all nodes (so they need to remain under `/home`)
 
 
 Starting PyCBC Live
