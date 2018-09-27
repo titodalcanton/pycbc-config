@@ -43,8 +43,8 @@ pycbc_live \
 --store-psd \
 --state-channel H1:GDS-CALIB_STATE_VECTOR L1:GDS-CALIB_STATE_VECTOR V1:DQ_ANALYSIS_STATE_VECTOR \
 --channel-name H1:GDS-CALIB_STRAIN_O2Replay L1:GDS-CALIB_STRAIN_O2Replay V1:Hrec_hoft_16384Hz_O2Replay \
---increment-update-cache H1:/dev/shm/llhoft/H1_O2/ L1:/dev/shm/llhoft/L1_O2/ V1:/dev/shm/llhoft/V1_O2/ \
---frame-src H1:/dev/shm/llhoft/H1_O2/* L1:/dev/shm/llhoft/L1_O2/* V1:/dev/shm/llhoft/V1_O2/* \
+--increment-update-cache H1:/dev/shm/kafka/H1_O2/ L1:/dev/shm/kafka/L1_O2/ V1:/dev/shm/kafka/V1_O2/ \
+--frame-src H1:/dev/shm/kafka/H1_O2/* L1:/dev/shm/kafka/L1_O2/* V1:/dev/shm/kafka/V1_O2/* \
 --processing-scheme cpu:4 \
 --fftw-measure-level 0 \
 --fftw-threads-backend openmp \
