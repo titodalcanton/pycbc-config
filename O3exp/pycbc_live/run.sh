@@ -14,7 +14,7 @@ mpirun \
 -ppn 1 \
 -envlist X509_USER_PROXY,X509_USER_KEY,X509_USER_CERT,PYTHONPATH,LD_LIBRARY_PATH,OMP_NUM_THREADS,VIRTUAL_ENV,PATH,LAL_DATA_PATH \
 \
-pycbc_live \
+python -m mpi4py `which pycbc_live` \
 --bank-file /home/pycbc.live/production/O3exp/o2bank_v1.hdf \
 --sample-rate 2048 \
 --enable-bank-start-frequency \
