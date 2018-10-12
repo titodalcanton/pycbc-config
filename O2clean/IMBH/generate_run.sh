@@ -12,7 +12,7 @@ if test x${LIGO_USERNAME} == "x" ; then
   exit 1
 fi
 
-PROJECT_PATH=/home/$USER/cbc/O2/clean_data_runs_test_v5/cit/
+PROJECT_PATH=/home/$USER/cbc/O2/clean_data_runs_production_v5/cit/
 WEB_PATH=/home/$USER/public_html/LSC/O2/clean_data_runs/
 GITHUB_TAG="v1.11.14"
 CONFIG_TAG="v1.11.5"
@@ -62,7 +62,7 @@ pycbc_make_coinc_search_workflow \
   ${CONFIG_URL}/analysis.ini \
   ${CONFIG_URL}/data_C02.ini \
   ${CONFIG_URL}/executables.ini \
-  /home/juancalderonbustillo/Atlas/cbc/O2/clean_data/chunk19/nrinjections.ini \
+  /home/juancalderonbustillo/Atlas/cbc/O2/clean_data/production_runs/chunk19/nrinjections.ini \
   ${CONFIG_URL}/plotting.ini \
   ${CONFIG_URL}/gating.ini \
   ${CONFIG_URL}/gps_times_O2_analysis_${n}.ini \
