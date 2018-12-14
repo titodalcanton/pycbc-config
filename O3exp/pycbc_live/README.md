@@ -1,6 +1,12 @@
 PyCBC Live notes for O2 data replay - O3 investigation
 ======================================================
 
+`run.sh` is used for testing, O2 replay and processing of commissioning data between O2 and O3.
+
+`run_ER13.sh` is used during ER13. The template bank for ER13 is available and documented
+[here](https://git.ligo.org/soumen.roy/HybridBankResults/tree/master/ER13/H1L1/OptFlow).
+
+
 Preparing an environment for running PyCBC Live
 -----------------------------------------------
 
