@@ -15,10 +15,9 @@ fi
 PROJECT_PATH=/home/$USER/cbc/O2/clean_data_runs_production_v5/cit/
 WEB_PATH=/home/$USER/public_html/LSC/O2/clean_data_runs/
 GITHUB_TAG="v1.11.14"
-CONFIG_TAG="v1.11.5"
-GITHUB_URL="https://git.ligo.org/ligo-cbc/pycbc-config/${GITHUB_TAG}/O2clean/pipeline"
-CONFIG_URL="https://git.ligo.org/ligo-cbc/pycbc-config/raw/${CONFIG_TAG}/O2clean/pipeline"
-#Use PyCBC v1.9.1 frokm cvmfs
+CONFIG_TAG="v1.11.7"
+CONFIG_URL="https://git.ligo.org/ligo-cbc/pycbc-config/raw/${CONFIG_TAG}/O2clean/IMBH/"
+
 
 set -e
 
@@ -62,7 +61,7 @@ pycbc_make_coinc_search_workflow \
   ${CONFIG_URL}/analysis.ini \
   ${CONFIG_URL}/data_C02.ini \
   ${CONFIG_URL}/executables.ini \
-  /home/juancalderonbustillo/Atlas/cbc/O2/clean_data/production_runs/chunk19/nrinjections.ini \
+  ${CONFIG_URL}/nrinjections.ini \
   ${CONFIG_URL}/plotting.ini \
   ${CONFIG_URL}/gating.ini \
   ${CONFIG_URL}/gps_times_O2_analysis_${n}.ini \
@@ -71,15 +70,15 @@ pycbc_make_coinc_search_workflow \
   "results_page:analysis-title:${WORKFLOW_TITLE}" \
   "results_page:analysis-subtitle:${WORKFLOW_SUBTITLE}" \
   "workflow:file-retention-level:merged_triggers" \
-
-
+  #"pegasus-profile:condor|request_memory: ifthenelse( (LastHoldReasonCode=!=34 && LastHoldReasonCode=!=0), InitialRequestMemory, int(1.5 * NumJobStarts * MemoryUsage) )"
+  #"pegasus_profile:condor|request_disk: 200000" \
 pushd output
 
 pycbc_submit_dax \
   --local-dir /local/$USER/ \
   --accounting-group ligo.prod.o2.cbc.bbh.pycbcoffline \
   --dax ${WORKFLOW_NAME}.dax \
-  --cache-file /home/juancalderonbustillo/Atlas/cbc/O2/clean_data/local_cit_reused_files_analysis-19.map \
+  --cache-file /home/juancalderonbustillo/Atlas/cbc/O2/clean_data/production_runs/reuse_caches/local_cit_reused_files_analysis-$n.map \
 
 popd
 popd
