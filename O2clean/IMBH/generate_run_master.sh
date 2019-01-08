@@ -15,7 +15,7 @@ fi
 PROJECT_PATH=/home/$USER/cbc/O2/clean_data_runs_production_v5/cit/
 WEB_PATH=/home/$USER/public_html/LSC/O2/clean_data_runs/
 GITHUB_TAG="v1.11.14"
-CONFIG_TAG="v1.11.6"
+CONFIG_TAG="v1.11.7"
 CONFIG_URL="https://git.ligo.org/ligo-cbc/pycbc-config/raw/${CONFIG_TAG}/O2clean/IMBH/"
 
 

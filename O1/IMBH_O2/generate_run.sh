@@ -15,7 +15,7 @@ fi
 PROJECT_PATH=/home/$USER/cbc/O2/clean_data_runs_production_v5/cit/
 WEB_PATH=/home/$USER/public_html/LSC/O2/clean_data_runs/
 GITHUB_TAG="v1.11.14"
-CONFIG_TAG="v1.11.4"
+CONFIG_TAG="v1.11.7"
 GITHUB_URL="https://git.ligo.org/ligo-cbc/pycbc-config/${GITHUB_TAG}/O1/pipeline_O2"
 CONFIG_URL="https://git.ligo.org/ligo-cbc/pycbc-config/raw/${CONFIG_TAG}/O1/pipeline_O2"
 
@@ -61,7 +61,7 @@ pycbc_make_coinc_search_workflow \
   ${CONFIG_URL}/analysis.ini \
   ${CONFIG_URL}/data_C02.ini \
   ${CONFIG_URL}/executables.ini \
-  /home/juancalderonbustillo/Atlas/cbc/O1/nrinjections_01.ini \
+  ${CONFIG_URL}/nrinjections_o1.ini \
   ${CONFIG_URL}/plotting.ini \
   ${CONFIG_URL}/gating.ini \
   ${CONFIG_URL}/gps_times_O1_analysis_${n}.ini \
