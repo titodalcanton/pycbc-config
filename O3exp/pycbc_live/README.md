@@ -105,6 +105,10 @@ on a couple nodes only. A tiny bank suitable for this purpose is available
 at `~pycbc.live/production/O3exp/tiny.hdf`.
 
 
+### Remove all mentions of X509
+
+Remove all `export` commands mentioning `X509`. Remove all `X509` arguments from `-envlist`.
+
 ### Disable event uploads
 
 When testing, make sure you disable the upload of production events to
