@@ -10,7 +10,7 @@ export OMP_NUM_THREADS=4
 
 mpirun \
 -hostfile mpi_hosts_cit.txt \
--n 40 \
+-n 80 \
 -ppn 1 \
 -envlist X509_USER_PROXY,X509_USER_KEY,X509_USER_CERT,PYTHONPATH,LD_LIBRARY_PATH,OMP_NUM_THREADS,VIRTUAL_ENV,PATH,LAL_DATA_PATH \
 \
