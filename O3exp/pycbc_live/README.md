@@ -1,4 +1,4 @@
-# PyCBC Live notes for O2 data replay - O3 investigation
+# PyCBC Live notes for O2 data replay and pre-O3 data
 
 `run.sh` is used for testing, O2 replay and processing of commissioning data between O2 and O3.
 
@@ -23,8 +23,9 @@ Move to `O3exp/pycbc_live` into the working copy (where this README is).
 You will find a file `run.sh`, a file with a list of hosts to run MPI workers on,
 and two FFTW wisdom files.
 
-Copy the  `run.sh` and the list of hosts to `node550` under a directory in `/local/pycbc.live`
+Copy the  `run.sh` and the list of hosts to `node742` under a directory in `/local/pycbc.live`
 (*not* NFS), obviously as the `pycbc.live` user.
+For testing, replace `pycbc.live` with your user (and see below).
 
 You will need to edit `run.sh` to point to the wisdom files. These need to be
 in a directory visible to all nodes (so they need to remain under `/home`)
@@ -33,7 +34,7 @@ in a directory visible to all nodes (so they need to remain under `/home`)
 ## Starting and managing PyCBC Live in production mode (*not* for testing)
 
 First of all, before touching anything related to the production analysis,
-log into CIT's `node550` as `pycbc.live` and source the virtualenv where
+log into CIT's `node742` as `pycbc.live` and source the virtualenv where
 all the software is installed (`~pycbc.live/production/O3exp/env`).
 
 The production analysis is managed by [supervisord](http://supervisord.org/).
@@ -54,7 +55,7 @@ starts the analysis if it is not running.
 stops a running analysis.
 
 Sometimes supervisord itself needs to be (re)started, for instance after
-`node550` is rebooted.
+`node742` is rebooted.
 
 For more details, look at supervisord's documentation.
 
@@ -76,13 +77,19 @@ documented.
 ## Testing and learning PyCBC Live
 
 Here are a few notes on how to test PyCBC Live during development,
-or for practicing if you are new to PyCBC Live.
+or for practicing if you are new to PyCBC Live. The most important things
+to pay attention to during testing are the following:
+
+* Do not interfere with the production analysis.
+* Do not upload test triggers to GraceDB.
+
+The steps below try to explain how to avoid both things.
 
 
 ### Get a working production script
 
 Start from a production run script, typically the one from the most recent
-observing or engineering run (`run_ER13.sh` in this directory is a good start
+observing or engineering run (`run.sh` in this directory is a good start
 as I write these notes). Do *not* run the script as is, as you could
 interfere with production analyses (although most likely you will just get
 an error).
@@ -90,19 +97,46 @@ an error).
 
 ### Reduce number of MPI nodes
 
-PyCBC Live uses MPI to distribute the workload across tens of compute nodes.
-When testing, reduce the number of MPI nodes to 2 by changing `mpirun`'s
-option `-n` to `2`. This will only bother a couple of nodes instead of the
-entire PyCBC Live pool and will make the log messages easier to follow.
+PyCBC Live uses MPI to distribute the trigger-generation operations across tens
+of compute nodes. Typically you cannot run a second instance of PyCBC Live on
+the same nodes: the resources are limited and the additional load will likely
+cause the production analysis to fall behind.
+When that happens, people will be notified of the problem.
+Worst case, the production analysis might miss an event!
+
+Most tests can still be done with a master node and a single worker node.
+Thus, please reduce the number of nodes to 2 by changing `mpirun`'s option `-n`
+to `2`, and use an MPI hosts file containing just the lines `localhost` and
+`node550`. `node550` is reserved as a testing node so your test will not steal
+resources from production nodes. The fewer nodes will also make the log
+messages easier to follow.
+
+In rare occasions, testing will require running on the full set of nodes for
+brief periods of time.  Do *not* just run a test on the production nodes while
+the production analysis is running.  Consider that you can use a different set
+of nodes than the production ones (although there may be Condor jobs running on
+them).  Most likely you should coordinate with the whole group, so at least the
+production analysis can be taken down during the test without causing
+surprises.
 
 
-### Switch to a smaller template bank
+### Reduce the cost of the analysis
 
-Running a production template bank with only 2 MPI nodes will not work.
-Thus, change the template bank (`--bank-file` option) to one containing
-a small number of templates (~1000 max). This will allow the test to run
-on a couple nodes only. A tiny bank suitable for this purpose is available
-at `~pycbc.live/production/O3exp/tiny.hdf`.
+Running a production template bank with only 2 MPI nodes will generally not
+work because of the required RAM and CPU time. This can be addressed in two
+ways.
+
+Change the template bank (`--bank-file` option) to one containing a small
+number of templates (~1000 max). A tiny bank suitable for this purpose is
+available at `~pycbc.live/production/O3exp/tiny.hdf`.
+
+Another method is the `--size-override` option. This option takes as an
+argument the number of nodes that you would normally use in production,
+but will only run one worker process instead.
+
+Note that although perfect for debugging, both of the options are *not*
+suitable for doing sensitivity studies over the entire template bank parameter
+space, as they will dramatically reduce the sensitivity of the search.
 
 
 ### Remove all mentions of X509
@@ -157,12 +191,12 @@ if you are analyzing simulated strain data. Remove the options:
 ### Starting the analysis
 
 The production analysis runs under the `pycbc.live` account and is started from
-`node550` at CIT.  The `pycbc.live` user should *not* be used for testing; you
-should start any test run from *your user*, after logging into `node550`. Using
+`node742` at CIT.  The `pycbc.live` user should *not* be used for testing; you
+should start any test run from *your user*, after logging into `node742`. Using
 your own account makes it easier for you to work and minimizes the chance of
 your test interfering with or overwriting production results or logs.
 
-Before running a test, make sure you can `ssh` from `node550` to any of the
+Before running a test, make sure you can `ssh` from `node742` to any of the
 compute nodes without a password. The first time you try this you will most
 likely need to create an SSH keypair (unless you already have one) and then
 add your SSH pubkey to your own `~/.ssh/authorized_keys` file. If `ssh node551`
