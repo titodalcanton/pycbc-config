@@ -18,6 +18,7 @@ GITHUB_TAG="v1.11.14"
 CONFIG_TAG="v1.11.7"
 GITHUB_URL="https://git.ligo.org/ligo-cbc/pycbc-config/${GITHUB_TAG}/O2clean/pipeline"
 CONFIG_URL="https://git.ligo.org/ligo-cbc/pycbc-config/raw/${CONFIG_TAG}/O2clean/pipeline"
+CONFIG_INJ_URL="https://git.ligo.org/ligo-cbc/pycbc-config/raw/${CONFIG_TAG}/O2clean/IMBH"
 #Use PyCBC v1.9.1 frokm cvmfs
 
 set -e
@@ -62,7 +63,7 @@ pycbc_make_coinc_search_workflow \
   ${CONFIG_URL}/analysis.ini \
   ${CONFIG_URL}/data_C02.ini \
   ${CONFIG_URL}/executables.ini \
-  ${CONFIG_URL}/nrinjections_rerun6060.ini \
+  ${CONFIG_INJ_URL}/nrinjections_rerun6060.ini \
   ${CONFIG_URL}/plotting.ini \
   ${CONFIG_URL}/gating.ini \
   ${CONFIG_URL}/gps_times_O2_analysis_${n}.ini \
