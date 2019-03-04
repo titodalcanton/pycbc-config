@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# PyCBC Live startup script during O2 data replay
+# PyCBC Live startup script during ER14
 
 export LAL_DATA_PATH=/home/pycbc.live/production/data/
 export X509_USER_CERT=/home/pycbc.live/.globus/robot.cert.pem
