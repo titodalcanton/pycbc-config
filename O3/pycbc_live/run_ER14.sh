@@ -10,7 +10,7 @@ export HDF5_USE_FILE_LOCKING="FALSE"
 
 mpirun \
 -hostfile /home/pycbc.live/production/O3/mpi_hosts_cit.txt \
--n 80 \
+-n 99 \
 -ppn 1 \
 -envlist X509_USER_KEY,X509_USER_CERT,PYTHONPATH,LD_LIBRARY_PATH,OMP_NUM_THREADS,VIRTUAL_ENV,PATH,LAL_DATA_PATH,HDF5_USE_FILE_LOCKING \
 \
@@ -33,7 +33,7 @@ python -m mpi4py `which pycbc_live` \
 --highpass-bandwidth 5 \
 --highpass-reduction 200 \
 --psd-samples 30 \
---max-psd-abort-distance 300 \
+--max-psd-abort-distance 600 \
 --min-psd-abort-distance 20 \
 --psd-abort-difference .15 \
 --psd-recalculate-difference .01 \
