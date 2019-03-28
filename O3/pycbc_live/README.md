@@ -1,7 +1,28 @@
 # PyCBC Live notes for ER14 and O3
 
-`run_ER14.sh` is used during ER14. The template bank for ER14 is currently the same as used in ER13,
+`run_ER14.sh` is the script for starting the analysis during ER14.
+The template bank for ER14 is currently the same as used in ER13,
 available and documented [here](https://git.ligo.org/soumen.roy/HybridBankResults/tree/master/ER13/H1L1/OptFlow).
+
+`run_O3.sh` is the script for starting the analysis during O3. It will be
+modified during the run if configuration changes are necessary.  Please submit
+those changes as merge requests against this repository.  Changes will have to
+be reviewed and should be merged to master before `run_O3.sh` is actually
+deployed.
+
+
+## General overview of the setup
+
+Two parallel PyCBC Live analyses run at CIT: the *production analysis* doing
+open alerts and science, and the *O2 replay analysis* demonstrating the
+stability and correct behavior on old O2 data. The environments for these two
+analyses are separate, so changes can be first deployed and tested on the replay
+analysis while keeping the production analysis unaffected, and then replicated
+on the production environment.
+
+The production analysis uses the directories `~pycbc.live/production/O3` and
+`/local/pycbc.live/O3`, while the replay analysis uses
+`~pycbc.live/testing/O2_replay` and `/local/pycbc.live/O2_replay`.
 
 
 ## Preparing an environment for running PyCBC Live
@@ -18,22 +39,19 @@ Install PyCBC with `pip install .`.
 Clone https://git.ligo.org/ligo-cbc/pycbc-config from your own user.
 
 Move to `O3/pycbc_live` into the working copy (where this README is).
-You will find a file `run.sh`, a file with a list of hosts to run MPI workers on,
-and two FFTW wisdom files.
+You will find the `run_*.sh` script, a file with a list of hosts to run MPI
+workers on, and two FFTW wisdom files.
 
-Copy the  `run.sh` and the list of hosts to `node742` under a directory in `/local/pycbc.live`
-(*not* NFS), obviously as the `pycbc.live` user.
-For testing, replace `pycbc.live` with your user (and see below).
-
-You will need to edit `run.sh` to point to the wisdom files. These need to be
-in a directory visible to all nodes (so they need to remain under `/home`)
+You will need to edit the run script to point to the wisdom files.
+These need to be in a directory visible to all nodes (so they need to remain under `/home`).
+You may have to edit other paths as well, e.g. the bank file, output directory etc.
 
 
 ## Starting and managing PyCBC Live in production mode (*not* for testing)
 
 First of all, before touching anything related to the production analysis,
 log into CIT's `node742` as `pycbc.live` and source the virtualenv where
-all the software is installed (`~pycbc.live/production/O3/env`).
+all the software is installed (`~pycbc.live/production/O3/pycbc_live_O3_production_env`).
 
 The production analysis is managed by [supervisord](http://supervisord.org/).
 This utility simplifies starting and stopping the analysis, it takes care of
@@ -87,7 +105,7 @@ The steps below try to explain how to avoid both things.
 ### Get a working production script
 
 Start from a production run script, typically the one from the most recent
-observing or engineering run (`run.sh` in this directory is a good start
+observing or engineering run (`run_O3.sh` in this directory is a good start
 as I write these notes). Do *not* run the script as is, as you could
 interfere with production analyses (although most likely you will just get
 an error).
