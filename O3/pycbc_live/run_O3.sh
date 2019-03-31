@@ -10,7 +10,7 @@ export HDF5_USE_FILE_LOCKING="FALSE"
 
 mpirun \
 -hostfile /home/pycbc.live/production/O3/mpi_hosts_cit.txt \
--n 99 \
+-n 150 \
 -ppn 1 \
 -envlist X509_USER_KEY,X509_USER_CERT,PYTHONPATH,LD_LIBRARY_PATH,OMP_NUM_THREADS,VIRTUAL_ENV,PATH,LAL_DATA_PATH,HDF5_USE_FILE_LOCKING \
 \
