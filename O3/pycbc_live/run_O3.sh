@@ -79,7 +79,6 @@ python -m mpi4py `which pycbc_live` \
 --ifar-double-followup-threshold 0.0001 \
 --ifar-upload-threshold 0.0027 \
 --enable-gracedb-upload \
---enable-single-detector-upload \
 --gracedb-server https://gracedb.ligo.org/api/ \
 --enable-production-gracedb-upload \
 --round-start-time 4
