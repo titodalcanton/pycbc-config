@@ -10,7 +10,7 @@ export HDF5_USE_FILE_LOCKING="FALSE"
 
 mpirun \
 -hostfile /home/pycbc.live/production/O3/mpi_hosts_cit.txt \
--n 99 \
+-n 150 \
 -ppn 1 \
 -envlist X509_USER_KEY,X509_USER_CERT,PYTHONPATH,LD_LIBRARY_PATH,OMP_NUM_THREADS,VIRTUAL_ENV,PATH,LAL_DATA_PATH,HDF5_USE_FILE_LOCKING \
 \
@@ -78,4 +78,9 @@ python -m mpi4py `which pycbc_live` \
 --pvalue-combination-livetime 0.0005 \
 --ifar-double-followup-threshold 0.0001 \
 --ifar-upload-threshold 0.0027 \
+--enable-gracedb-upload \
+--gracedb-server https://gracedb.ligo.org/api/ \
+--enable-production-gracedb-upload \
 --round-start-time 4
+
+echo 'The PyCBC Live production analysis has terminated. You may want to check the log messages!' | mail -s 'PyCBC Live terminated' tito.canton@ligo.org
