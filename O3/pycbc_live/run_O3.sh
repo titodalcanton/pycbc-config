@@ -83,4 +83,4 @@ python -m mpi4py `which pycbc_live` \
 --enable-production-gracedb-upload \
 --round-start-time 4
 
-echo 'The PyCBC Live production analysis has terminated. You may want to check the log messages!' | mail -s 'PyCBC Live terminated' tito.canton@ligo.org
+echo 'The PyCBC Live production analysis has terminated. You may want to check the log messages!' | mail -s 'PyCBC Live terminated' tito.canton@ligo.org lxxiao@caltech.edu ian.harry@port.ac.uk bhooshanudaygadre@gmail.com khunsang@iitk.ac.in
