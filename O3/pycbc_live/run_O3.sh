@@ -79,8 +79,8 @@ python -m mpi4py `which pycbc_live` \
 --ifar-double-followup-threshold 0.0001 \
 --ifar-upload-threshold 0.0027 \
 --enable-gracedb-upload \
---gracedb-server https://gracedb-playground.ligo.org/api/ \
+--gracedb-server https://gracedb.ligo.org/api/ \
 --enable-production-gracedb-upload \
 --round-start-time 4
 
-echo 'The PyCBC Live production analysis has terminated. You may want to check the log messages!' | mail -s 'PyCBC Live terminated' tito.canton@ligo.org lxxiao@caltech.edu ian.harry@port.ac.uk bhooshanudaygadre@gmail.com khunsang@iitk.ac.in
+echo 'The PyCBC Live production analysis has terminated. You may want to check the log messages!' | mail -s 'PyCBC Live terminated' tito.canton@ligo.org sophia.xiao@ligo.org ian.harry@ligo.org bhooshan.gadre@ligo.org khun.phukon@ligo.org
