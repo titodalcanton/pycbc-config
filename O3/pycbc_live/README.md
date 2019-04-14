@@ -218,3 +218,10 @@ compute nodes without a password. The first time you try this you will most
 likely need to create an SSH keypair (unless you already have one) and then
 add your SSH pubkey to your own `~/.ssh/authorized_keys` file. If `ssh node551`
 brings you to `node551` without a password, most likely you are good to go.
+
+### To upload pycbc live triggers manually to the production GraceDB
+
+- Create your ligo proxy using `ligo-proxy-init albert.einstein`. 
+- Check that works using `gracedb ping`.
+- Then upload the event using `gracedb create event --offline CBC pycbc <coinc.xml> AllSky`, where <coinc.xml> is relevant coincident trigger file.
+- Make sure that event appears OK.
