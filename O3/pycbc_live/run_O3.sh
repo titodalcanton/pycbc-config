@@ -28,7 +28,6 @@ python -m mpi4py `which pycbc_live` \
 --max-triggers-in-batch 25 \
 --store-loudest-index 50 \
 --analysis-chunk 8 \
---autogating-threshold 200 \
 --highpass-frequency 13 \
 --highpass-bandwidth 5 \
 --highpass-reduction 200 \
@@ -41,13 +40,32 @@ python -m mpi4py `which pycbc_live` \
 --psd-segment-length 4 \
 --trim-padding .5 \
 --store-psd \
---state-channel H1:GDS-CALIB_STATE_VECTOR L1:GDS-CALIB_STATE_VECTOR V1:DQ_ANALYSIS_STATE_VECTOR \
---channel-name H1:GDS-GATED_STRAIN L1:GDS-GATED_STRAIN V1:Hrec_hoft_16384Hz_Gated \
---data-quality-channel H1:DMT-DQ_VECTOR L1:DMT-DQ_VECTOR V1:DQ_ANALYSIS_STATE_VECTOR \
---data-quality-flags H1:OMC_DCPD_ADC_OVERFLOW,ETMY_ESD_DAC_OVERFLOW L1:OMC_DCPD_ADC_OVERFLOW,ETMY_ESD_DAC_OVERFLOW V1:VIRGO_GOOD_DQ \
+--increment-update-cache \
+    H1:/dev/shm/kafka/H1 \
+    L1:/dev/shm/kafka/L1 \
+    V1:/dev/shm/kafka/V1 \
+--frame-src \
+    H1:/dev/shm/kafka/H1/* \
+    L1:/dev/shm/kafka/L1/* \
+    V1:/dev/shm/kafka/V1/* \
+--frame-read-timeout 100 \
+--channel-name \
+    H1:GDS-GATED_STRAIN \
+    L1:GDS-GATED_STRAIN \
+    V1:Hrec_hoft_16384Hz_Gated \
+--state-channel \
+    H1:GDS-CALIB_STATE_VECTOR \
+    L1:GDS-CALIB_STATE_VECTOR \
+    V1:DQ_ANALYSIS_STATE_VECTOR \
+--data-quality-channel \
+    H1:DMT-DQ_VECTOR \
+    L1:DMT-DQ_VECTOR \
+    V1:DQ_ANALYSIS_STATE_VECTOR \
+--data-quality-flags \
+    H1:OMC_DCPD_ADC_OVERFLOW,ETMY_ESD_DAC_OVERFLOW \
+    L1:OMC_DCPD_ADC_OVERFLOW,ETMY_ESD_DAC_OVERFLOW \
+    V1:VIRGO_GOOD_DQ \
 --data-quality-padding 1.0 \
---increment-update-cache H1:/dev/shm/kafka/H1 L1:/dev/shm/kafka/L1 V1:/dev/shm/kafka/V1 \
---frame-src H1:/dev/shm/kafka/H1/* L1:/dev/shm/kafka/L1/* V1:/dev/shm/kafka/V1/* \
 --processing-scheme cpu:4 \
 --fftw-input-float-wisdom-file /home/pycbc.live/production/O3/fftw_wisdom_single_cit \
 --fftw-input-double-wisdom-file /home/pycbc.live/production/O3/fftw_wisdom_double_cit \
@@ -61,7 +79,6 @@ python -m mpi4py `which pycbc_live` \
 --single-reduced-chisq-threshold 2 \
 --verbose \
 --max-batch-size 16777216 \
---frame-read-timeout 100 \
 --output-path /local/pycbc.live/O3/triggers \
 --output-status /home/pycbc.live/public_html/production/status.json \
 --day-hour-output-prefix \
