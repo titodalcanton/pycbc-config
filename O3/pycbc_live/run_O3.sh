@@ -57,14 +57,18 @@ python -m mpi4py `which pycbc_live` \
     H1:GDS-CALIB_STATE_VECTOR \
     L1:GDS-CALIB_STATE_VECTOR \
     V1:DQ_ANALYSIS_STATE_VECTOR \
+--analyze-flags \
+    H1:HOFT_OK,SCIENCE_INTENT \
+    L1:HOFT_OK,SCIENCE_INTENT \
+    V1:HOFT_OK,SCIENCE_INTENT,VIRGO_GOOD_DQ \
 --data-quality-channel \
     H1:DMT-DQ_VECTOR \
     L1:DMT-DQ_VECTOR \
-    V1:DQ_ANALYSIS_STATE_VECTOR \
+    V1:DQ_VETO_PYCBC \
 --data-quality-flags \
-    H1:OMC_DCPD_ADC_OVERFLOW,ETMY_ESD_DAC_OVERFLOW \
-    L1:OMC_DCPD_ADC_OVERFLOW,ETMY_ESD_DAC_OVERFLOW \
-    V1:VIRGO_GOOD_DQ \
+    H1:OMC_DCPD_ADC_OVERFLOW,ETMX_ESD_DAC_OVERFLOW,ETMY_ESD_DAC_OVERFLOW \
+    L1:OMC_DCPD_ADC_OVERFLOW,ETMX_ESD_DAC_OVERFLOW,ETMY_ESD_DAC_OVERFLOW \
+    V1:veto_nonzero \
 --data-quality-padding 1.0 \
 --processing-scheme cpu:4 \
 --fftw-input-float-wisdom-file /home/pycbc.live/production/O3/fftw_wisdom_single_cit \
